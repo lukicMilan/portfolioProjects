@@ -82,8 +82,6 @@ button:active {
 .fa-twitter {
     font-size: 1.5rem;
 }
-    
-}
 
 /* Media Query */
 @media screen and (max-width: 960px) {
