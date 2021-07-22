@@ -53,7 +53,6 @@ async function getNewQuote() {
     try {
         const response = await fetch(url);
         quoteJson = await response.json();
-        console.log
     } catch (error) {
         alert("Error while loading new quote...");
         console.log(error);
