@@ -7,10 +7,46 @@
     <link rel="icon" type="image/png" href="https://image.pngaaa.com/144/4734144-small.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Quote generator</title>
 </head>
 <body>
-    
+    <!-- Quote container -->
+    <div class="quote-container center" id="quote-container">
+        <!-- Quote text -->
+        <div class="quote-text">
+            <em class="fas fa-quote-left"></em>
+            <span id="quote" class="long-quote">
+                Random text that will be some dynamic quote
+            </span>
+        </div>
+        <!-- Author -->
+        <div class="quote-author">
+            <span id="author">Some Author </span>
+        </div>
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="button twitter-button" id="twitter-button" title="Tweet this!">
+                <em class="fab fa-twitter"></em>
+            </button>
+            <button class="button new-quote-button" id="new-quote-button">New quote</button>
+        </div>
+    </div>
+    <!-- Loader -->
+    <div class="lds-ring center" id="loader">
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
