@@ -67,6 +67,32 @@ function postTweet() {
     window.open(url, '_blank')
 }
 
+//api cors policy error solution
+/*
+//cors anywhere solution
+//may be crowded and cause 429 error
+function getFromApi() {
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+    const apiUrl = "someApiUrl"
+
+    const repsponse = fetch(proxyUrl + apiUrl)
+}
+
+//my own proxy
+1. install heroku cli
+2. install node
+in terminal:
+3. heroku login
+4. git clone {Rob--W's cors-anywhere server}
+5. cd cors folder
+6. npm install
+7. heroku create
+8. git push heroku master
+in code:
+9. copy/paste proxy url of the server instead of free for all one
+
+*/
+
 //EVENT LISTENERS
 newQuoteBtn.addEventListener('click', getNewQuote);
 twitterBtn.addEventListener('click', postTweet);
