@@ -11,14 +11,14 @@ let quoteJson = {
     'author': 'Creator'
 };
 
-//showing loader
-function showLoader() {
+//showing loading spinner
+function showLoadingSpinner() {
     loader.style.visibility = "visible";
     quoteContainer.style.visibility = "hidden";
 }
 
-//hide loader
-function hideLoader() {
+//hide loading spinner
+function hideLoadingSpinner() {
     loader.style.visibility = "hidden";
     quoteContainer.style.visibility = "visible";
 }
@@ -43,19 +43,23 @@ function showQuote() {
         quoteText.classList.remove("long-qoute")
     }
 
-    hideLoader()
+    hideLoadingSpinner()
 }
 
 //Get new quote
-async function getNewQuote() {
+async function getNewQuote(counter) {
     const url = 'https://api.quotable.io/random'
-    showLoader()
+    showLoadingSpinner()
     try {
         const response = await fetch(url);
         quoteJson = await response.json();
     } catch (error) {
-        alert("Error while loading new quote...");
-        console.log(error);
+        counter++;
+        if(counter == 10) {
+            console.log(error);
+        } else {
+            getNewQuote(counter)
+        }
     }
     showQuote()
 }
@@ -94,8 +98,8 @@ in code:
 */
 
 //EVENT LISTENERS
-newQuoteBtn.addEventListener('click', getNewQuote);
+newQuoteBtn.addEventListener('click', getNewQuote(0));
 twitterBtn.addEventListener('click', postTweet);
 
 //ON LOAD
-getNewQuote();
+getNewQuote(0);
