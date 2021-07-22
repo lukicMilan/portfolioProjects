@@ -2,12 +2,26 @@ const quoteText = document.getElementById("quote")
 const authorText = document.getElementById("author")
 const twitterBtn = document.getElementById("twitter-button")
 const newQuoteBtn = document.getElementById("new-quote-button")
+const loader = document.getElementById("loader")
+const quoteContainer = document.getElementById("quote-container")
 
 
 let quoteJson = {
     'content': 'Oops, something went wrong. Please try again later.',
     'author': 'Creator'
 };
+
+//showing loader
+function showLoader() {
+    loader.style.visibility = "visible";
+    quoteContainer.style.visibility = "hidden";
+}
+
+//hide loader
+function hideLoader() {
+    loader.style.visibility = "hidden";
+    quoteContainer.style.visibility = "visible";
+}
 
 //Show quote
 function showQuote() {
@@ -28,11 +42,14 @@ function showQuote() {
     } else {
         quoteText.classList.remove("long-qoute")
     }
+
+    hideLoader()
 }
 
 //Get new quote
 async function getNewQuote() {
     const url = 'https://api.quotable.io/random'
+    showLoader()
     try {
         const response = await fetch(url);
         quoteJson = await response.json();
@@ -43,9 +60,17 @@ async function getNewQuote() {
     }
     showQuote()
 }
+
+//Post a tweet
+function postTweet() {
+    const url =  `https://twitter.com/intent/tweet?text${quoteText.textContent} - ${authorText.textContent}`
+
+    window.open(url, '_blank')
+}
+
 //EVENT LISTENERS
 newQuoteBtn.addEventListener('click', getNewQuote);
-twitterBtn.addEventListener('click', {});
+twitterBtn.addEventListener('click', postTweet);
 
 //ON LOAD
 getNewQuote();
