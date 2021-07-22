@@ -98,7 +98,9 @@ in code:
 */
 
 //EVENT LISTENERS
-newQuoteBtn.addEventListener('click', getNewQuote(0));
+newQuoteBtn.addEventListener('click', function() {
+    getNewQuote(0);
+});
 twitterBtn.addEventListener('click', postTweet);
 
 //ON LOAD
