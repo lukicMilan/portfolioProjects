@@ -32,7 +32,6 @@ body {
 }
 
 .images-container {
-    height: 1000px;
     text-align: center;
     padding: 5px;
 }
@@ -50,6 +49,8 @@ body {
 
 .loading-spinner-container {
     visibility: visible;
+    text-align: center;
+    padding: 5px;
 }
 
 @media screen and (max-width: 1024px) {
