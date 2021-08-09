@@ -48,6 +48,7 @@ body {
     max-width:100%;
     max-height:100%;
     display: flex;
+    z-index: -1;
 }
 
 .like-animated-icon {
@@ -65,10 +66,24 @@ body {
     padding: 5px;
 }
 
+.like-icon {
+    color: red;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+    font-size: 2rem;
+    padding: 4px;
+}
+
+.not-liked {
+    visibility: hidden;
+}
+
 /* animations */
 .animation-trigger {
     animation-name: like-animation;
-    animation-duration: 5s;
+    animation-duration: 1.5s;
     animation-iteration-count: 1;
 }
 
@@ -97,6 +112,10 @@ body {
 
     .like-animated-icon {
         font-size: 0rem;
+    }
+
+    .like-icon {
+        font-size: 1.5rem;
     }
 
     /* responsive animation */

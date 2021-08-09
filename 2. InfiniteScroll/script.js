@@ -1,5 +1,8 @@
 const imagesContainer = document.getElementById("images-container");
 
+
+const likedImages = []
+
 // Collection summer
 const collectionId = 3403106
 /* Based on this http://jsfiddle.net/brettwp/J4djY/*/
@@ -30,6 +33,7 @@ function getImageById(id) {
             imageContainer.classList.add('image-container');
             imageContainer.innerHTML = `<img id="${id}" class="image" src="${response.url}" alt="image from unisplash"/>
                 <i id="${id}_animated" class="fas fa-heart like-animated-icon"></i>
+                <i id="${id}_liked" class="fas fa-heart not-liked like-icon"></i>
             `;
             imageContainer.addEventListener('dblclick', function(e) {
                 triggerAnimation(id);
@@ -60,6 +64,8 @@ async function triggerAnimation(id) {
     likeIcon.classList.add('animation-trigger');
     await new Promise(r => setTimeout(r, 2000));
     likeIcon.classList.remove('animation-trigger');
+    let likedIcon = document.getElementById(`${id}_liked`);
+    likedIcon.classList.remove('not-liked');
 }
 
 
